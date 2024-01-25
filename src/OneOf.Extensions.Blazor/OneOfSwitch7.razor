@@ -1,0 +1,85 @@
+﻿@typeparam T0;
+@typeparam T1;
+@typeparam T2;
+@typeparam T3;
+@typeparam T4;
+@typeparam T5;
+@typeparam T6;
+
+@{
+    if (Value.IsT0)
+    {
+        @T0Template(Value.AsT0)
+    }
+    else if (Value.IsT1)
+    {
+        @T1Template(Value.AsT1)
+    }
+    else if (Value.IsT2)
+    {
+        @T2Template(Value.AsT2)
+    }
+    else if (Value.IsT3)
+    {
+        @T3Template(Value.AsT3)
+    }
+    else if (Value.IsT4)
+    {
+        @T4Template(Value.AsT4)
+    }
+    else if (Value.IsT5)
+    {
+        @T5Template(Value.AsT5)
+    }
+    else
+    {
+        @T6Template(Value.AsT6)
+    }
+}
+
+@code {
+    [Parameter]
+    [EditorRequired]
+    public OneOf<T0, T1, T2, T3, T4, T5, T6> Value { get; set; }
+
+    [Parameter]
+    [EditorRequired]
+    public RenderFragment<T0> T0Template { get; set; } = default!;
+
+    [Parameter]
+    [EditorRequired]
+    public RenderFragment<T1> T1Template { get; set; } = default!;
+
+    [Parameter]
+    [EditorRequired]
+    public RenderFragment<T2> T2Template { get; set; } = default!;
+
+    [Parameter]
+    [EditorRequired]
+    public RenderFragment<T3> T3Template { get; set; } = default!;
+
+    [Parameter]
+    [EditorRequired]
+    public RenderFragment<T4> T4Template { get; set; } = default!;
+
+    [Parameter]
+    [EditorRequired]
+    public RenderFragment<T5> T5Template { get; set; } = default!;
+
+    [Parameter]
+    [EditorRequired]
+    public RenderFragment<T6> T6Template { get; set; } = default!;
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+
+        ArgumentNullException.ThrowIfNull(T0Template);
+        ArgumentNullException.ThrowIfNull(T1Template);
+        ArgumentNullException.ThrowIfNull(T2Template);
+        ArgumentNullException.ThrowIfNull(T3Template);
+        ArgumentNullException.ThrowIfNull(T4Template);
+        ArgumentNullException.ThrowIfNull(T5Template);
+        ArgumentNullException.ThrowIfNull(T6Template);
+    }
+}

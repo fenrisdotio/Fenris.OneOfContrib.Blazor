@@ -1,0 +1,91 @@
+﻿@page "/"
+
+<PageTitle>OneOf Switch Examples</PageTitle>
+
+<h3>Simple OneOfSwitch2 Example</h3>
+<p>
+    This example shows you can use the &lt;OneOfSwitch2&gt; component to display different content depending on the
+    value in a <span class="font-monospace">OneOf&lt;int, string?&gt;</span>.
+</p>
+
+<div class="mb-4 p-1 border border-dark rounded text-center">
+
+    <OneOfSwitch2 Value="oneOf">
+        <T0Template>
+            <div class="alert-primary">
+                <span class="oi oi-calculator" aria-hidden="true"></span>
+                <span class="font-monospace">@context<sup>3</sup> = @Math.Pow(context, 3)</span>
+            </div>
+        </T0Template>
+        <T1Template>
+            <div class="alert-secondary">
+                <span>Hello @context, nice to meet you!</span>
+                <span class="oi oi-pencil" aria-hidden="true"></span>
+            </div>
+        </T1Template>
+    </OneOfSwitch2>
+
+</div>
+
+<p>OneOf value is: <span class="font-monospace">@oneOf</span></p>
+
+<div class="form-group">
+    Change type
+    <InputRadioGroup TValue="int" Name="type" Value="@type" ValueChanged="OnTypeChanged" ValueExpression="() => type">
+        <div class="form-check">
+            <InputRadio Value="0" id="intOption" class="form-check-input"/><label for="intOption" class="form-check-label">Int</label>
+        </div>
+        <div class="form-check">
+            <InputRadio Value="1" id="stringOption" class="form-check-input"/><label for="stringOption" class="form-check-label">String</label>
+        </div>
+    </InputRadioGroup>
+</div>
+
+<div class="form-group mt-3">
+    <label for="number" class="form-check-label">Enter a number</label>
+    <InputNumber TValue="int" Value="intValue" ValueChanged="IntValueChanged" ValueExpression="() => intValue" class="form-control" id="number" disabled="@(type != 0)"/>
+</div>
+
+<div class="form-group mt-3">
+    <label for="name">Enter a name</label>
+    <InputText Value="@stringValue" ValueChanged="OnStringChanged" ValueExpression="() => stringValue" class="form-control" id="name" disabled="@(type != 1)"/>
+</div>
+
+@code
+{
+    private OneOf<int, string?> oneOf = 2;
+
+    private int type;
+
+    private int intValue = 2;
+
+    private string? stringValue = "John Doe";
+
+    private void OnTypeChanged(int newType)
+    {
+        type = newType;
+
+        if (type == 0)
+        {
+            oneOf = intValue;
+        }
+        else
+        {
+            oneOf = stringValue;
+        }
+    }
+
+    private void IntValueChanged(int newValue)
+    {
+        intValue = newValue;
+
+        oneOf = newValue;
+    }
+
+    private void OnStringChanged(string? newValue)
+    {
+        stringValue = newValue;
+
+        oneOf = newValue;
+    }
+}

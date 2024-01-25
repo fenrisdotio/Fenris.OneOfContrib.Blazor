@@ -1,0 +1,106 @@
+﻿@typeparam T0;
+@typeparam T1;
+@typeparam T2;
+@typeparam T3;
+@typeparam T4;
+@typeparam T5;
+@typeparam T6;
+@typeparam T7;
+@typeparam T8;
+
+@{
+    if (Value.IsT0)
+    {
+        @T0Template(Value.AsT0)
+    }
+    else if (Value.IsT1)
+    {
+        @T1Template(Value.AsT1)
+    }
+    else if (Value.IsT2)
+    {
+        @T2Template(Value.AsT2)
+    }
+    else if (Value.IsT3)
+    {
+        @T3Template(Value.AsT3)
+    }
+    else if (Value.IsT4)
+    {
+        @T4Template(Value.AsT4)
+    }
+    else if (Value.IsT5)
+    {
+        @T5Template(Value.AsT5)
+    }
+    else if (Value.IsT6)
+    {
+        @T6Template(Value.AsT6)
+    }
+    else if (Value.IsT7)
+    {
+        @T7Template(Value.AsT7)
+    }
+    else
+    {
+        @T8Template(Value.AsT8)
+    }
+}
+
+@code {
+    [Parameter]
+    [EditorRequired]
+    public OneOfBase<T0, T1, T2, T3, T4, T5, T6, T7, T8> Value { get; set; } = default!;
+
+    [Parameter]
+    [EditorRequired]
+    public RenderFragment<T0> T0Template { get; set; } = default!;
+
+    [Parameter]
+    [EditorRequired]
+    public RenderFragment<T1> T1Template { get; set; } = default!;
+
+    [Parameter]
+    [EditorRequired]
+    public RenderFragment<T2> T2Template { get; set; } = default!;
+
+    [Parameter]
+    [EditorRequired]
+    public RenderFragment<T3> T3Template { get; set; } = default!;
+
+    [Parameter]
+    [EditorRequired]
+    public RenderFragment<T4> T4Template { get; set; } = default!;
+
+    [Parameter]
+    [EditorRequired]
+    public RenderFragment<T5> T5Template { get; set; } = default!;
+
+    [Parameter]
+    [EditorRequired]
+    public RenderFragment<T6> T6Template { get; set; } = default!;
+
+    [Parameter]
+    [EditorRequired]
+    public RenderFragment<T7> T7Template { get; set; } = default!;
+
+    [Parameter]
+    [EditorRequired]
+    public RenderFragment<T8> T8Template { get; set; } = default!;
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+
+        ArgumentNullException.ThrowIfNull(Value);
+        ArgumentNullException.ThrowIfNull(T0Template);
+        ArgumentNullException.ThrowIfNull(T1Template);
+        ArgumentNullException.ThrowIfNull(T2Template);
+        ArgumentNullException.ThrowIfNull(T3Template);
+        ArgumentNullException.ThrowIfNull(T4Template);
+        ArgumentNullException.ThrowIfNull(T5Template);
+        ArgumentNullException.ThrowIfNull(T6Template);
+        ArgumentNullException.ThrowIfNull(T7Template);
+        ArgumentNullException.ThrowIfNull(T8Template);
+    }
+}
