@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/compare/v1.0.0...v1.0.1) (2024-01-26)
+
+
+### Bug Fixes
+
+* set PAT in release-please script ([8b7b80f](https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/commit/8b7b80f7c4c702602ee011b637351b98e0bd62bc))
+
 ## 1.0.0 (2024-01-26)
 
 
