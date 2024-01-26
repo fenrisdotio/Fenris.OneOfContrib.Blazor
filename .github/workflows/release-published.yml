@@ -1,0 +1,27 @@
+﻿name: .NET Publish
+
+on:
+  release:
+    types: [ published ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - name: Restore dependencies
+        run: dotnet restore --configuration Release --verbosity minimal
+      - name: Build
+        run: dotnet build --configuration Release --no-restore --verbosity minimal
+      - name: Test
+        run: dotnet test --configuration Release --no-build --verbosity minimal
+      - name: Pack OneOf.Extensions.Blazor
+        run: dotnet pack src/OneOf.Extensions.Blazor/ -c Release -o ./artifacts --include-source --verbosity minimal -p:PackageVersion=${{ github.event.release.tag_name }}
+      - name: Push to nuget.org
+        run: dotnet nuget push ./artifacts/*.nupkg --source "https://api.nuget.org/v3/index.json" --api-key ${{ secrets.NUGET_TOKEN }}
