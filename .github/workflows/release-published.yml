@@ -6,7 +6,6 @@ on:
 
 jobs:
   build_release_nuget_package:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -22,6 +21,9 @@ jobs:
       - name: Test
         run: dotnet test --configuration Release --no-build --verbosity minimal
       - name: Pack Fenris.OneOfContrib.Blazor
-        run: dotnet pack src/Fenris.OneOfContrib.Blazor/ -c Release -o ./artifacts --include-source --verbosity minimal -p:PackageVersion=${{ github.event.release.tag_name }}
+        run: |
+          VERSION=${{ github.event.release.tag_name }}
+          VERSION=${VERSION#v}
+          dotnet pack src/Fenris.OneOfContrib.Blazor/ -c Release -o ./artifacts --include-source --verbosity minimal -p:PackageVersion=$VERSION
       - name: Push to nuget.org
         run: dotnet nuget push ./artifacts/*.nupkg --source "https://api.nuget.org/v3/index.json" --api-key ${{ secrets.NUGET_TOKEN }}
