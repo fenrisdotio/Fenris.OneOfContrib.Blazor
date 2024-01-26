@@ -1,0 +1,171 @@
+﻿@inherits TestContext
+
+@code
+{
+    public static IEnumerable<object[]> DataForShouldRenderCorrectTemplateForType()
+    {
+        yield return new object[] { new T0Record("example 0"), "T0 Value example 0" };
+        yield return new object[] { new T1Record("example 1"), "T1 Value example 1" };
+        yield return new object[] { new T2Record("example 2"), "T2 Value example 2" };
+        yield return new object[] { new T3Record("example 3"), "T3 Value example 3" };
+        yield return new object[] { new T4Record("example 4"), "T4 Value example 4" };
+        yield return new object[] { new T5Record("example 5"), "T5 Value example 5" };
+        yield return new object[] { new T6Record("example 6"), "T6 Value example 6" };
+    }
+
+    [Theory]
+    [MemberData(nameof(DataForShouldRenderCorrectTemplateForType))]
+    public void ShouldRenderCorrectTemplateForType(object value, string expectedMarkup)
+    {
+        OneOfBase7Example oneOf = value.GetType().Name switch
+        {
+            "T0Record" => (T0Record)value,
+            "T1Record" => (T1Record)value,
+            "T2Record" => (T2Record)value,
+            "T3Record" => (T3Record)value,
+            "T4Record" => (T4Record)value,
+            "T5Record" => (T5Record)value,
+            "T6Record" => (T6Record)value,
+            _ => throw new ArgumentOutOfRangeException(nameof(value), $"Unknown type \"{value.GetType().Name}\"."),
+        };
+
+        var component = Render(
+            @<OneOfBaseSwitch7 T0="T0Record" T1="T1Record" T2="T2Record" T3="T3Record" T4="T4Record" T5="T5Record" T6="T6Record" Value="oneOf">
+                <T0Template>T0 Value @context.Value</T0Template>
+                <T1Template>T1 Value @context.Value</T1Template>
+                <T2Template>T2 Value @context.Value</T2Template>
+                <T3Template>T3 Value @context.Value</T3Template>
+                <T4Template>T4 Value @context.Value</T4Template>
+                <T5Template>T5 Value @context.Value</T5Template>
+                <T6Template>T6 Value @context.Value</T6Template>
+            </OneOfBaseSwitch7>);
+
+        component.MarkupMatches(expectedMarkup);
+    }
+
+    [Fact]
+    public void ShouldThrowExceptionIfT0TemplateIsMissing()
+    {
+        var oneOf = new OneOfBase7Example(new T0Record("example"));
+
+        var act = () => Render(
+            @<OneOfBaseSwitch7 T0="T0Record" T1="T1Record" T2="T2Record" T3="T3Record" T4="T4Record" T5="T5Record" T6="T6Record" Value="oneOf">
+                <T1Template>T1 Value @context.Value</T1Template>
+                <T2Template>T2 Value @context.Value</T2Template>
+                <T3Template>T3 Value @context.Value</T3Template>
+                <T4Template>T4 Value @context.Value</T4Template>
+                <T5Template>T5 Value @context.Value</T5Template>
+                <T6Template>T6 Value @context.Value</T6Template>
+            </OneOfBaseSwitch7>);
+
+        act.Should().Throw<ArgumentNullException>().WithParameterName("T0Template");
+    }
+
+    [Fact]
+    public void ShouldThrowExceptionIfT1TemplateIsMissing()
+    {
+        var oneOf = new OneOfBase7Example(new T0Record("example"));
+
+        var act = () => Render(
+            @<OneOfBaseSwitch7 T0="T0Record" T1="T1Record" T2="T2Record" T3="T3Record" T4="T4Record" T5="T5Record" T6="T6Record" Value="oneOf">
+                <T0Template>T0 Value @context.Value</T0Template>
+                <T2Template>T2 Value @context.Value</T2Template>
+                <T3Template>T3 Value @context.Value</T3Template>
+                <T4Template>T4 Value @context.Value</T4Template>
+                <T5Template>T5 Value @context.Value</T5Template>
+                <T6Template>T6 Value @context.Value</T6Template>
+            </OneOfBaseSwitch7>);
+
+        act.Should().Throw<ArgumentNullException>().WithParameterName("T1Template");
+    }
+
+    [Fact]
+    public void ShouldThrowExceptionIfT2TemplateIsMissing()
+    {
+        var oneOf = new OneOfBase7Example(new T0Record("example"));
+
+        var act = () => Render(
+            @<OneOfBaseSwitch7 T0="T0Record" T1="T1Record" T2="T2Record" T3="T3Record" T4="T4Record" T5="T5Record" T6="T6Record" Value="oneOf">
+                <T0Template>T0 Value @context.Value</T0Template>
+                <T1Template>T1 Value @context.Value</T1Template>
+                <T3Template>T3 Value @context.Value</T3Template>
+                <T4Template>T4 Value @context.Value</T4Template>
+                <T5Template>T5 Value @context.Value</T5Template>
+                <T6Template>T6 Value @context.Value</T6Template>
+            </OneOfBaseSwitch7>);
+
+        act.Should().Throw<ArgumentNullException>().WithParameterName("T2Template");
+    }
+
+    [Fact]
+    public void ShouldThrowExceptionIfT3TemplateIsMissing()
+    {
+        var oneOf = new OneOfBase7Example(new T0Record("example"));
+
+        var act = () => Render(
+            @<OneOfBaseSwitch7 T0="T0Record" T1="T1Record" T2="T2Record" T3="T3Record" T4="T4Record" T5="T5Record" T6="T6Record" Value="oneOf">
+                <T0Template>T0 Value @context.Value</T0Template>
+                <T1Template>T1 Value @context.Value</T1Template>
+                <T2Template>T2 Value @context.Value</T2Template>
+                <T4Template>T4 Value @context.Value</T4Template>
+                <T5Template>T5 Value @context.Value</T5Template>
+                <T6Template>T6 Value @context.Value</T6Template>
+            </OneOfBaseSwitch7>);
+
+        act.Should().Throw<ArgumentNullException>().WithParameterName("T3Template");
+    }
+
+    [Fact]
+    public void ShouldThrowExceptionIfT4TemplateIsMissing()
+    {
+        var oneOf = new OneOfBase7Example(new T0Record("example"));
+
+        var act = () => Render(
+            @<OneOfBaseSwitch7 T0="T0Record" T1="T1Record" T2="T2Record" T3="T3Record" T4="T4Record" T5="T5Record" T6="T6Record" Value="oneOf">
+                <T0Template>T0 Value @context.Value</T0Template>
+                <T1Template>T1 Value @context.Value</T1Template>
+                <T2Template>T2 Value @context.Value</T2Template>
+                <T3Template>T3 Value @context.Value</T3Template>
+                <T5Template>T5 Value @context.Value</T5Template>
+                <T6Template>T6 Value @context.Value</T6Template>
+            </OneOfBaseSwitch7>);
+
+        act.Should().Throw<ArgumentNullException>().WithParameterName("T4Template");
+    }
+
+    [Fact]
+    public void ShouldThrowExceptionIfT5TemplateIsMissing()
+    {
+        var oneOf = new OneOfBase7Example(new T0Record("example"));
+
+        var act = () => Render(
+            @<OneOfBaseSwitch7 T0="T0Record" T1="T1Record" T2="T2Record" T3="T3Record" T4="T4Record" T5="T5Record" T6="T6Record" Value="oneOf">
+                <T0Template>T0 Value @context.Value</T0Template>
+                <T1Template>T1 Value @context.Value</T1Template>
+                <T2Template>T2 Value @context.Value</T2Template>
+                <T3Template>T3 Value @context.Value</T3Template>
+                <T4Template>T4 Value @context.Value</T4Template>
+                <T6Template>T6 Value @context.Value</T6Template>
+            </OneOfBaseSwitch7>);
+
+        act.Should().Throw<ArgumentNullException>().WithParameterName("T5Template");
+    }
+
+    [Fact]
+    public void ShouldThrowExceptionIfT6TemplateIsMissing()
+    {
+        var oneOf = new OneOfBase7Example(new T0Record("example"));
+
+        var act = () => Render(
+            @<OneOfBaseSwitch7 T0="T0Record" T1="T1Record" T2="T2Record" T3="T3Record" T4="T4Record" T5="T5Record" T6="T6Record" Value="oneOf">
+                <T0Template>T0 Value @context.Value</T0Template>
+                <T1Template>T1 Value @context.Value</T1Template>
+                <T2Template>T2 Value @context.Value</T2Template>
+                <T3Template>T3 Value @context.Value</T3Template>
+                <T4Template>T4 Value @context.Value</T4Template>
+                <T5Template>T5 Value @context.Value</T5Template>
+            </OneOfBaseSwitch7>);
+
+        act.Should().Throw<ArgumentNullException>().WithParameterName("T6Template");
+    }
+}

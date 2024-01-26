@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{04559151-CE50-43AF-9288-B2BF8D7329CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fenris.OneOfContrib.Blazor", "src\Fenris.OneOfContrib.Blazor\Fenris.OneOfContrib.Blazor.csproj", "{954CE396-7B84-45A7-9D2B-2FF04342A7AB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{00E966CE-CB47-48A9-BC6B-54749544A049}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{AD185D98-E3F5-4C5E-AA53-33A5F6CD770E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fenris.OneOfContrib.Blazor.Examples", "examples\Fenris.OneOfContrib.Blazor.Examples\Fenris.OneOfContrib.Blazor.Examples.csproj", "{2E64AB13-C096-442B-B1D1-2C71EB9D6B0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fenris.OneOfContrib.Blazor.Test", "test\Fenris.OneOfContrib.Blazor.Test\Fenris.OneOfContrib.Blazor.Test.csproj", "{161F07BA-0F32-49FD-9708-3001E6F267AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{954CE396-7B84-45A7-9D2B-2FF04342A7AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{954CE396-7B84-45A7-9D2B-2FF04342A7AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{954CE396-7B84-45A7-9D2B-2FF04342A7AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{954CE396-7B84-45A7-9D2B-2FF04342A7AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E64AB13-C096-442B-B1D1-2C71EB9D6B0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E64AB13-C096-442B-B1D1-2C71EB9D6B0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E64AB13-C096-442B-B1D1-2C71EB9D6B0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E64AB13-C096-442B-B1D1-2C71EB9D6B0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{161F07BA-0F32-49FD-9708-3001E6F267AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{161F07BA-0F32-49FD-9708-3001E6F267AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{161F07BA-0F32-49FD-9708-3001E6F267AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{161F07BA-0F32-49FD-9708-3001E6F267AE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{954CE396-7B84-45A7-9D2B-2FF04342A7AB} = {04559151-CE50-43AF-9288-B2BF8D7329CA}
+		{2E64AB13-C096-442B-B1D1-2C71EB9D6B0E} = {AD185D98-E3F5-4C5E-AA53-33A5F6CD770E}
+		{161F07BA-0F32-49FD-9708-3001E6F267AE} = {00E966CE-CB47-48A9-BC6B-54749544A049}
+	EndGlobalSection
+EndGlobal

@@ -27,7 +27,7 @@ jobs:
         run: dotnet build --no-restore
       - name: Test
         run: dotnet test --no-build --verbosity normal
-      - name: Pack OneOf.Extensions.Blazor
-        run: dotnet pack src/OneOf.Extensions.Blazor/ -c Release -o ./artifacts --include-source --verbosity minimal -p:PackageVersion=0.1.${{ github.run_number }}-alpha
+      - name: Pack Fenris.OneOfContrib.Blazor
+        run: dotnet pack src/Fenris.OneOfContrib.Blazor/ -c Release -o ./artifacts --include-source --verbosity minimal -p:PackageVersion=0.1.${{ github.run_number }}-alpha
       - name: Push to nuget.org
         run: dotnet nuget push ./artifacts/*.nupkg --source "https://api.nuget.org/v3/index.json" --api-key ${{ secrets.NUGET_TOKEN }} 

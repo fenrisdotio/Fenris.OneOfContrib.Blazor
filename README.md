@@ -1,4 +1,4 @@
-﻿# OneOf.Extensions.Blazor
+﻿# Fenris.OneOfContrib.Blazor
 
 A collection of Blazor components for working with [OneOf](https://github.com/mcintyre321/OneOf) types in your Blazor project.
 
@@ -16,25 +16,25 @@ and found it made my Blazor components much more readable and in general nicer t
 - Blazor components for `OneOf` types with up to **8** type parameters.
 - Blazor components for types that inherit from `OneOfBase`, also with up to **8** type parameters.
 
-That's, that's it. It's a pretty simple library 😁
+That's it. It's a pretty simple library 😁
 
 ## 💿 Installation
 
-Install the [OneOf.Extensions.Blazor](https://www.nuget.org/packages/OneOf.Extensions.Blazor/) NuGet package.
+Install the [Fenris.OneOfContrib.Blazor](https://www.nuget.org/packages/Fenris.OneOfContrib.Blazor/) NuGet package.
 
 ```bash
-dotnet add package OneOf.Extensions.Blazor
+dotnet add package Fenris.OneOfContrib.Blazor
 ```
 
 ## 🚀 Usage
 
-See the [Examples](examples/OneOf.Extensions.Blazor.Examples/Pages/Index.razor) project for a full, simple example.
+See the [Examples](examples/OneOfContrib.Blazor.Examples/Pages/Index.razor) project for a full, simple example.
 
 Let's make a small example where we have to deal with a `OneOf<string, int>`.
 
 First, add the using either to your `_Imports.razor` file, or directly in your specific pages/components:
 ```csharp
-@using OneOf.Extensions.Blazor
+@using Fenris.OneOfContrib.Blazor.Components
 ```
 
 Then use the component in your blazor pages or components 
