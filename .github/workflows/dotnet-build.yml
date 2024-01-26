@@ -11,7 +11,7 @@ on:
       - '*.sln'
 
 jobs:
-  build:
+  continuous_build_and_test:
 
     runs-on: ubuntu-latest
 

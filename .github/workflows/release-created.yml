@@ -1,8 +1,8 @@
-﻿name: On Release Created
+﻿name: On release created
 
 on:
   release:
-    types: [created]
+    types: [ created ]
 
 jobs:
   build_prelease_nuget_package:
@@ -17,10 +17,10 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
       - name: Build
-        run: dotnet build --no-restore
+        run: dotnet build --configuration Release --no-restore
       - name: Test
-        run: dotnet test --no-build --verbosity normal
+        run: dotnet test --configuration Release --no-build --verbosity minimal
       - name: Pack Fenris.OneOfContrib.Blazor
-        run: dotnet pack src/Fenris.OneOfContrib.Blazor/ -c Release -o ./artifacts --include-source --verbosity minimal -p:PackageVersion=${{ github.event.release.tag_name }}-${{ github.run_number }}-rc
+        run: dotnet pack src/Fenris.OneOfContrib.Blazor/ -c Release -o ./artifacts --include-source --verbosity minimal -p:PackageVersion=${{ github.event.release.tag_name }}-rc
       - name: Push to nuget.org
         run: dotnet nuget push ./artifacts/*.nupkg --source "https://api.nuget.org/v3/index.json" --api-key ${{ secrets.NUGET_TOKEN }}

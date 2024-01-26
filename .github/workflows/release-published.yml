@@ -1,11 +1,11 @@
-﻿name: .NET Publish
+﻿name: On release published
 
 on:
   release:
     types: [ published ]
 
 jobs:
-  build:
+  build_release_nuget_package:
 
     runs-on: ubuntu-latest
 
@@ -16,9 +16,9 @@ jobs:
         with:
           dotnet-version: 8.0.x
       - name: Restore dependencies
-        run: dotnet restore --configuration Release --verbosity minimal
+        run: dotnet restore
       - name: Build
-        run: dotnet build --configuration Release --no-restore --verbosity minimal
+        run: dotnet build --configuration Release --no-restore
       - name: Test
         run: dotnet test --configuration Release --no-build --verbosity minimal
       - name: Pack Fenris.OneOfContrib.Blazor
