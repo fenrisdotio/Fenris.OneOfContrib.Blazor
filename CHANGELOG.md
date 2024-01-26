@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/compare/v1.0.3...v1.0.4) (2024-01-26)
+
+
+### Bug Fixes
+
+* use correct link in nuget description ([7bf0000](https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/commit/7bf0000c7477538e6f27432820d6bcb5dee7a813))
+
 ## [1.0.3](https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/compare/v1.0.2...v1.0.3) (2024-01-26)
 
 
