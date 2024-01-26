@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/compare/v1.0.2...v1.0.3) (2024-01-26)
+
+
+### Bug Fixes
+
+* fix issue with version number in release actions ([c696ee2](https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/commit/c696ee2d0d294b4961bc8e24768c68fe67c562d8))
+
 ## [1.0.2](https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/compare/v1.0.1...v1.0.2) (2024-01-26)
 
 
