@@ -37,6 +37,11 @@ jobs:
             -p:PackageVersion=0.1.${{ github.run_number }}-alpha
       - name: Push to nuget.org
         run: |
-          dotnet nuget push ./artifacts/* \
+          dotnet nuget push ./artifacts/*.nupkg \
             --source "https://api.nuget.org/v3/index.json" \
-            --api-key ${{ secrets.NUGET_TOKEN }} 
+            --api-key ${{ secrets.NUGET_TOKEN }}
+      - name: Push symbols to nuget.org
+        run: |
+          dotnet nuget push ./artifacts/*.snupkg \
+            --source "https://www.nuget.org/api/v2/symbolpackage" \
+            --api-key ${{ secrets.NUGET_TOKEN }}
