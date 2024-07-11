@@ -6,6 +6,7 @@ on:
 
 jobs:
   build_prelease_nuget_package:
+    name: Build and push prerelease NuGet package
     runs-on: ubuntu-latest
 
     steps:
@@ -14,16 +15,27 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0.x
+
       - name: Restore dependencies
         run: dotnet restore
       - name: Build
         run: dotnet build --configuration Release --no-restore
       - name: Test
         run: dotnet test --configuration Release --no-build --verbosity minimal
+        
       - name: Pack Fenris.OneOfContrib.Blazor
         run: |
           VERSION=${{ github.event.release.tag_name }}
           VERSION=${VERSION#v}
-          dotnet pack src/Fenris.OneOfContrib.Blazor/ -c Release -o ./artifacts --include-source --verbosity minimal -p:PackageVersion=$VERSION-rc
-      - name: Push to nuget.org
-        run: dotnet nuget push ./artifacts/*.nupkg --source "https://api.nuget.org/v3/index.json" --api-key ${{ secrets.NUGET_TOKEN }}
+          dotnet pack src/Fenris.OneOfContrib.Blazor/ -c Release -o ./artifacts --include-source --verbosity minimal -p:PackageVersion=$VERSION-rc.${{ github.run_number }}
+
+      - name: Push implementation package
+        run: |
+          dotnet nuget push ./artifacts/*.nupkg \
+            --source "https://api.nuget.org/v3/index.json" \
+            --api-key ${{ secrets.NUGET_TOKEN }}
+      - name: Push symbols package
+        run: |
+          dotnet nuget push ./artifacts/*.snupkg \
+            --source "https://www.nuget.org/api/v2/symbolpackage" \
+            --api-key ${{ secrets.NUGET_TOKEN }}
