@@ -5,6 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <NoWarn>CS1591</NoWarn>
 
         <OutputType>Library</OutputType>
         <PackageId>Fenris.OneOfContrib.Blazor</PackageId>
@@ -32,10 +33,9 @@ Example:
         <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
         <PackageReleaseNotes>https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/blob/main/CHANGELOG.md</PackageReleaseNotes>
 
-        <PublishRepositoryUrl>true</PublishRepositoryUrl>
-        <EmbedUntrackedSources>true</EmbedUntrackedSources>
-        <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <IncludeSymbols>true</IncludeSymbols>
         <IsPackable>true</IsPackable>
     </PropertyGroup>
 
