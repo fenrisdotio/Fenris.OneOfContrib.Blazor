@@ -1,6 +1,7 @@
 ﻿# Fenris.OneOfContrib.Blazor
 
-A collection of Blazor components for working with [OneOf](https://github.com/mcintyre321/OneOf) types in your Blazor project.
+A collection of Blazor components for working with [OneOf](https://github.com/mcintyre321/OneOf) types in your Blazor
+project.
 
 ## 🤔 Why?
 
@@ -33,11 +34,12 @@ See the [Examples](examples/OneOfContrib.Blazor.Examples/Pages/Index.razor) proj
 Let's make a small example where we have to deal with a `OneOf<string, int>`.
 
 First, add the using either to your `_Imports.razor` file, or directly in your specific pages/components:
+
 ```csharp
 @using Fenris.OneOfContrib.Blazor.Components
 ```
 
-Then use the component in your blazor pages or components 
+Then use the component in your blazor pages or components
 
 ```csharp
 <OneOfSwitch2 Value="myOneOf">
@@ -54,12 +56,14 @@ Then use the component in your blazor pages or components
 }
 ```
 
-If you are using a `OneOfBase` type, you need to use the `<OneOfBaseSwitch2>` component instead. Everything else is identical.
+If you are using a `OneOfBase` type, you need to use the `<OneOfBaseSwitch2>` component instead. Everything else is
+identical.
 
-If your union contains more than two types, you need to use the `<OneOfSwitchN>` or `<OneOfBaseSwitchN>` components, where `N` is the number of types in your union. E.g. `<OneOfSwitch5>`
+If your union contains more than two types, you need to use the `<OneOfSwitchN>` or `<OneOfBaseSwitchN>` components,
+where `N` is the number of types in your union. E.g. `<OneOfSwitch5>`
 
 ## 🐛 Bugs, feature requests, and contributions
 
-If you find a bug or have a feature request, please open an issue. 
+If you find a bug or have a feature request, please open an issue.
 
 Pull requests are also welcome 😊

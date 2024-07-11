@@ -5,53 +5,53 @@ using Microsoft.AspNetCore.Components;
 public partial class OneOfSwitch6<T0, T1, T2, T3, T4, T5>
 {
     /// <summary>
-    /// The value.
-    /// </summary>
-    [Parameter]
-    [EditorRequired]
-    public OneOf<T0, T1, T2, T3, T4, T5> Value { get; set; }
-
-    /// <summary>
-    /// The <see cref="RenderFragment{TValue}"/> to use when the value is of type <typeparamref name="T0"/>.
+    ///     The <see cref="RenderFragment{TValue}" /> to use when the value is of type <typeparamref name="T0" />.
     /// </summary>
     [Parameter]
     [EditorRequired]
     public RenderFragment<T0> T0Template { get; set; } = default!;
 
     /// <summary>
-    /// The <see cref="RenderFragment{TValue}"/> to use when the value is of type <typeparamref name="T1"/>.
+    ///     The <see cref="RenderFragment{TValue}" /> to use when the value is of type <typeparamref name="T1" />.
     /// </summary>
     [Parameter]
     [EditorRequired]
     public RenderFragment<T1> T1Template { get; set; } = default!;
 
     /// <summary>
-    /// The <see cref="RenderFragment{TValue}"/> to use when the value is of type <typeparamref name="T2"/>.
+    ///     The <see cref="RenderFragment{TValue}" /> to use when the value is of type <typeparamref name="T2" />.
     /// </summary>
     [Parameter]
     [EditorRequired]
     public RenderFragment<T2> T2Template { get; set; } = default!;
 
     /// <summary>
-    /// The <see cref="RenderFragment{TValue}"/> to use when the value is of type <typeparamref name="T3"/>.
+    ///     The <see cref="RenderFragment{TValue}" /> to use when the value is of type <typeparamref name="T3" />.
     /// </summary>
     [Parameter]
     [EditorRequired]
     public RenderFragment<T3> T3Template { get; set; } = default!;
 
     /// <summary>
-    /// The <see cref="RenderFragment{TValue}"/> to use when the value is of type <typeparamref name="T4"/>.
+    ///     The <see cref="RenderFragment{TValue}" /> to use when the value is of type <typeparamref name="T4" />.
     /// </summary>
     [Parameter]
     [EditorRequired]
     public RenderFragment<T4> T4Template { get; set; } = default!;
 
     /// <summary>
-    /// The <see cref="RenderFragment{TValue}"/> to use when the value is of type <typeparamref name="T5"/>.
+    ///     The <see cref="RenderFragment{TValue}" /> to use when the value is of type <typeparamref name="T5" />.
     /// </summary>
     [Parameter]
     [EditorRequired]
     public RenderFragment<T5> T5Template { get; set; } = default!;
+
+    /// <summary>
+    ///     The value.
+    /// </summary>
+    [Parameter]
+    [EditorRequired]
+    public OneOf<T0, T1, T2, T3, T4, T5> Value { get; set; }
 
     protected override void OnParametersSet()
     {

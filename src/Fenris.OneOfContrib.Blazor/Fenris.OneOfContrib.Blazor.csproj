@@ -12,20 +12,20 @@
         <Title>Fenris.OneOfContrib.Blazor</Title>
         <Authors>fenris.io</Authors>
         <Description>
-A collection of Blazor components for dealing with OneOf types in your Blazor project.
+            A collection of Blazor components for dealing with OneOf types in your Blazor project.
 
-Instead of writing a switch statement to handle the different cases of a OneOf type, you can use these components to render the correct component for the case.
+            Instead of writing a switch statement to handle the different cases of a OneOf type, you can use these components to render the correct component for the case.
 
-Example:
+            Example:
 
-&lt;OneOfSwitch2 Value="myOneOfWithTwoTypeParameters"&gt;
-&lt;T0Template&gt;
-&lt;p&gt;I am of type T0 and my value is @context!.&lt;/p&gt;
-&lt;/T0Template&gt;
-&lt;T1Template&gt;
-&lt;p&gt;I am of type T1 and my value is @context!.&lt;/p&gt;
-&lt;/T1Template&gt;
-&lt;/OneOfSwitch2&gt;
+            &lt;OneOfSwitch2 Value="myOneOfWithTwoTypeParameters"&gt;
+            &lt;T0Template&gt;
+            &lt;p&gt;I am of type T0 and my value is @context!.&lt;/p&gt;
+            &lt;/T0Template&gt;
+            &lt;T1Template&gt;
+            &lt;p&gt;I am of type T1 and my value is @context!.&lt;/p&gt;
+            &lt;/T1Template&gt;
+            &lt;/OneOfSwitch2&gt;
         </Description>
         <PackageProjectUrl>https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor</PackageProjectUrl>
         <PackageTags>oneof contrib blazor components switch</PackageTags>
