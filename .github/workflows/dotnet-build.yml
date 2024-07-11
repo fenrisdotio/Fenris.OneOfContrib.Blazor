@@ -12,9 +12,44 @@ on:
       - '.github/workflows/*'
 
 jobs:
-  continuous_build_test_pack_push:
-
+  generate-version-number:
+    name: Generate version number
     runs-on: ubuntu-latest
+
+    outputs:
+      version: ${{ steps.get-latest-version.outputs.version }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch all tags
+        run: git fetch --tags --depth=1
+      - name: Get latest version number
+        run: |
+          latest_tag=$(git tag -l "v*" | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | sort -V | tail -n 1)
+
+          echo "LATEST_VERSION=${latest_tag:1}" >> $GITHUB_ENV
+          echo "Latest tag found: $latest_tag"
+      - name: Create version variable
+        id: get-latest-version
+        run: |
+          version=$LATEST_VERSION
+
+          if [[ $version =~ ^([0-9]+)\.([0-9]+)\.([0-9]+)$ ]]; then
+            major_version=${BASH_REMATCH[1]}
+            minor_version=${BASH_REMATCH[2]}
+            patch_version=${BASH_REMATCH[3]}
+            version="$major_version.$minor_version.$((patch_version + 1))"
+          else
+            version=1.0.0
+          fi
+
+          echo "Version that will be used: $version"
+          echo "version=$version" >> $GITHUB_OUTPUT
+  
+  continuous_build_test_pack_push:
+    name: Continuous build, test, and prerelease package upload
+    runs-on: ubuntu-latest
+    needs: generate-version-number
 
     steps:
       - uses: actions/checkout@v4
@@ -22,25 +57,30 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0.x
+
       - name: Restore dependencies
         run: dotnet restore
       - name: Build
         run: dotnet build --no-restore
       - name: Test
         run: dotnet test --no-build --verbosity normal
+
       - name: Pack
+        env:
+          PACKAGE_VERSION: ${{ needs.generate-version-number.outputs.version }}
         run: |
           dotnet pack src/Fenris.OneOfContrib.Blazor/ \
             -c Release \
             -o ./artifacts \
             --verbosity minimal \
-            -p:PackageVersion=1.0.4-${{ github.run_number }}-alpha
-      - name: Push to nuget.org
+            -p:PackageVersion=${{ env.PACKAGE_VERSION }}-alpha.${{ github.run_number }}
+
+      - name: Push implementation package
         run: |
           dotnet nuget push ./artifacts/*.nupkg \
             --source "https://api.nuget.org/v3/index.json" \
             --api-key ${{ secrets.NUGET_TOKEN }}
-      - name: Push symbols to nuget.org
+      - name: Push symbols package
         run: |
           dotnet nuget push ./artifacts/*.snupkg \
             --source "https://www.nuget.org/api/v2/symbolpackage" \
