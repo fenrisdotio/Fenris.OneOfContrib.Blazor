@@ -21,36 +21,3 @@
         @T3Template(Value.AsT3)
     }
 }
-
-@code {
-    [Parameter]
-    [EditorRequired]
-    public OneOfBase<T0, T1, T2, T3> Value { get; set; } = default!;
-
-    [Parameter]
-    [EditorRequired]
-    public RenderFragment<T0> T0Template { get; set; } = default!;
-
-    [Parameter]
-    [EditorRequired]
-    public RenderFragment<T1> T1Template { get; set; } = default!;
-
-    [Parameter]
-    [EditorRequired]
-    public RenderFragment<T2> T2Template { get; set; } = default!;
-
-    [Parameter]
-    [EditorRequired]
-    public RenderFragment<T3> T3Template { get; set; } = default!;
-
-    protected override void OnParametersSet()
-    {
-        base.OnParametersSet();
-
-        ArgumentNullException.ThrowIfNull(Value);
-        ArgumentNullException.ThrowIfNull(T0Template);
-        ArgumentNullException.ThrowIfNull(T1Template);
-        ArgumentNullException.ThrowIfNull(T2Template);
-        ArgumentNullException.ThrowIfNull(T3Template);
-    }
-}
