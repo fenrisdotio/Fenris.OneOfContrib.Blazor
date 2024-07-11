@@ -33,6 +33,8 @@ Example:
         <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
         <PackageReleaseNotes>https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/blob/main/CHANGELOG.md</PackageReleaseNotes>
 
+        <Deterministic>true</Deterministic>
+
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <IncludeSymbols>true</IncludeSymbols>
