@@ -34,7 +34,7 @@ jobs:
             -c Release \
             -o ./artifacts \
             --verbosity minimal \
-            -p:PackageVersion=0.1.${{ github.run_number }}-alpha
+            -p:PackageVersion=1.0.4-${{ github.run_number }}-alpha
       - name: Push to nuget.org
         run: |
           dotnet nuget push ./artifacts/*.nupkg \
