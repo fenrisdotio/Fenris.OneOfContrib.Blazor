@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.0.5](https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/compare/v1.0.4...v1.0.5) (2024-07-11)
+
+
+### Bug Fixes
+
+* also push symbol packages ([252bd76](https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/commit/252bd76510c3769771d1d2678d28fefdf5961d2e))
+* enable continuousintegrationbuild ([4a1c800](https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/commit/4a1c800998d9988bfea780362e6b7b3bb126cef1))
+* enable source link and add xmldocs ([a142926](https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/commit/a1429260969d2d1764be40d06b909dd723c488cd))
+* fix version in prerelease build ([6fed3bb](https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/commit/6fed3bb376b0585601fd24006734c19ed8dfed67))
+* fix version in prerelease build ([bd22c9f](https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/commit/bd22c9f4652ae235b4cffcf68a0c34cdf2aa10fd))
+* move [@code](https://github.com/code) blocks to code-behind files and add default documentation to members ([4dc3057](https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/commit/4dc3057ee69d8e9d3e67dc1b5b09813bf4911a83))
+* remove redundant sourcelink package ([42d0141](https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/commit/42d01416ad03e4c995ce5d406f07ab36669cd82c))
+
 ## [1.0.4](https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/compare/v1.0.3...v1.0.4) (2024-01-26)
 
 
