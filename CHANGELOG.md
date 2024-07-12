@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.0.6](https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/compare/v1.0.5...v1.0.6) (2024-07-12)
+
+
+### Bug Fixes
+
+* formatting of example project, just so it would trigger the workflow for the pr status check :D ([9435059](https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/commit/94350591fc7b91ca13eba574a25464aa692d4eb1))
+* rc and release nuget package workflows did not upload symbols ([8aed07e](https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/commit/8aed07e57725a5cb4fcea79a64cb48aa4efff66f))
+* remove release published workflow as it is redundant ([2606464](https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/commit/260646429ea39ca1730de4a987a8faad0b4d8188))
+* use package license expression instead of file. But still include the license.txt file into the package ([aff8556](https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/commit/aff8556fe0d7951febeec9b3dcc11af3628c54a8))
+
 ## [1.0.5](https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/compare/v1.0.4...v1.0.5) (2024-07-11)
 
 
