@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.7](https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/compare/v1.0.6...v1.0.7) (2024-07-12)
+
+
+### Bug Fixes
+
+* remove release-created workflow instead as that was the redundant one ([5a7e2b1](https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/commit/5a7e2b10441e7f4093c7513a3f92f620c76f1402))
+
 ## [1.0.6](https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/compare/v1.0.5...v1.0.6) (2024-07-12)
 
 
