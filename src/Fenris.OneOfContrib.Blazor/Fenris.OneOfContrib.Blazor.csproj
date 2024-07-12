@@ -8,6 +8,7 @@
         <NoWarn>CS1591</NoWarn>
 
         <OutputType>Library</OutputType>
+
         <PackageId>Fenris.OneOfContrib.Blazor</PackageId>
         <Title>Fenris.OneOfContrib.Blazor</Title>
         <Authors>fenris.io</Authors>
@@ -29,17 +30,17 @@
         </Description>
         <PackageProjectUrl>https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor</PackageProjectUrl>
         <PackageTags>oneof contrib blazor components switch</PackageTags>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
-        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
         <PackageReleaseNotes>https://github.com/fenrisdotio/Fenris.OneOfContrib.Blazor/blob/main/CHANGELOG.md</PackageReleaseNotes>
-
-        <Deterministic>true</Deterministic>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
 
         <IsPackable>true</IsPackable>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <IncludeSymbols>true</IncludeSymbols>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+        <Deterministic>true</Deterministic>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
